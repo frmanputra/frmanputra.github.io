@@ -3,112 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Saya</title>
+  <title>My Profile</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f172a;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #020617, #020617);
       color: #e5e7eb;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 40px;
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
     }
 
-    header img {
-      width: 140px;
-      height: 140px;
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    .hero span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      opacity: 0.85;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      background: #38bdf8;
+      color: #020617;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(56,189,248,.3);
+    }
+
+    .profile-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .profile-card img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #38bdf8;
+      margin-bottom: 15px;
     }
 
-    h1 {
-      margin: 15px 0 5px;
-    }
-
-    .role {
-      color: #38bdf8;
-      font-weight: bold;
-    }
-
+    /* SECTION */
     section {
-      background: #020617;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
-    section h2 {
-      margin-top: 0;
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
       color: #38bdf8;
     }
 
-    ul {
-      padding-left: 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 25px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(56,189,248,0.08);
     }
 
     footer {
       text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      opacity: 0.7;
+      opacity: 0.6;
+      margin-top: 40px;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    @media(max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <header>
-      <img src="profile.jpg" alt="Foto Profil">
-      <h1>Nama Kamu</h1>
-      <p class="role">Mahasiswa | Web Enthusiast</p>
-    </header>
 
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <h1>Hi, gue <span>Nama Kamu</span></h1>
+        <p>
+          Mahasiswa yang tertarik pada teknologi, web development,
+          dan dunia digital. Fokus belajar dan eksplorasi hal baru.
+        </p>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+
+      <div class="profile-card">
+        <img src="profile.jpg" alt="Profile">
+        <h3>Nama Kamu</h3>
+        <p>Student • Tech Enthusiast</p>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
     <section>
-      <h2>Tentang Saya</h2>
+      <h2>About Me</h2>
       <p>
-        Saya adalah mahasiswa yang tertarik pada teknologi, web development,
-        dan dunia digital. Saat ini sedang belajar HTML, CSS, dan JavaScript.
+        Gue suka ngulik teknologi, ngerjain project kecil,
+        dan belajar hal-hal baru di dunia IT.
+        Target jangka panjang: skill makin solid & portfolio rapi.
       </p>
     </section>
 
+    <!-- SKILLS -->
     <section>
-      <h2>Skill</h2>
-      <ul>
-        <li>HTML & CSS</li>
-        <li>Dasar JavaScript</li>
-        <li>Git & GitHub</li>
-      </ul>
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">HTML & CSS</div>
+        <div class="card">JavaScript (Basic)</div>
+        <div class="card">Git & GitHub</div>
+        <div class="card">Problem Solving</div>
+      </div>
     </section>
 
-    <section>
-      <h2>Kontak</h2>
-      <p>Email: <a href="mailto:emailkamu@gmail.com">emailkamu@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="card">📧 emailkamu@gmail.com</div>
+        <div class="card">💻 github.com/username</div>
+        <div class="card">📱 Instagram @username</div>
+      </div>
     </section>
 
     <footer>
-      © 2025 • Web Profile Sederhana
+      © 2025 • Built with HTML & CSS
     </footer>
+
   </div>
 
 </body>
