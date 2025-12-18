@@ -47,17 +47,19 @@
 
     .hero h1 {
       font-size: 42px;
-      line-height: 1.2;
+      line-height: 1.25;
+      text-shadow: 0 4px 20px rgba(0,0,0,.45);
     }
 
     .hero span {
-      color: #e10600; /* Red Bull Red */
+      color: #e10600;
     }
 
     .hero p {
       margin: 20px 0;
       opacity: 0.85;
       max-width: 500px;
+      text-shadow: 0 4px 20px rgba(0,0,0,.45);
     }
 
     .btn {
@@ -72,7 +74,7 @@
     }
 
     .btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px) scale(1.03);
       box-shadow: 0 12px 30px rgba(225,6,0,.4);
     }
 
@@ -95,7 +97,7 @@
     }
 
     .profile-card p {
-      color: #fcd116; /* Yellow accent */
+      color: #fcd116;
       font-size: 14px;
       margin-top: 5px;
     }
@@ -159,6 +161,27 @@
       font-size: 14px;
     }
 
+    /* ================= MUSIC BUTTON ================= */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(5,11,26,0.85);
+      color: white;
+      border: 1px solid rgba(225,6,0,.6);
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 999;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    .music-btn:hover {
+      background: linear-gradient(135deg, #e10600, #ff3b30);
+    }
+
     @media(max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
@@ -179,7 +202,10 @@
     <!-- HERO -->
     <div class="hero">
       <div>
-        <h1>Halo, gue <span>Firman</span><br>mau panggil <span>Putra</span> juga boleh</h1>
+        <h1>
+          Halo, gue <span>Firman</span><br>
+          mau panggil <span>Putra</span> juga boleh
+        </h1>
         <p>
           Mahasiswa yang tertarik pada teknologi, networking,
           dan dunia digital. Fokus belajar dan eksplorasi hal baru.
@@ -236,6 +262,43 @@
     </footer>
 
   </div>
+
+  <!-- ================= MUSIC ================= -->
+  <audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+  <script>
+    const bgm = document.getElementById("bgm");
+    const btn = document.querySelector(".music-btn");
+    let playing = false;
+
+    function startMusicOnce() {
+      bgm.volume = 0.4;
+      bgm.play().then(() => {
+        playing = true;
+        btn.innerText = "⏸ Pause Music";
+      }).catch(() => {});
+      document.removeEventListener("click", startMusicOnce);
+      document.removeEventListener("touchstart", startMusicOnce);
+    }
+
+    document.addEventListener("click", startMusicOnce);
+    document.addEventListener("touchstart", startMusicOnce);
+
+    function toggleMusic() {
+      if (!playing) {
+        bgm.play();
+        btn.innerText = "⏸ Pause Music";
+      } else {
+        bgm.pause();
+        btn.innerText = "🎵 Play Music";
+      }
+      playing = !playing;
+    }
+  </script>
 
 </body>
 </html>
