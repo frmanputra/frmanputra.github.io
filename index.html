@@ -9,6 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* CONTACT BUTTON */
+.contact-btn {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-btn:hover {
+  color: white;
+}
+
+/* Email hover */
+.contact-btn.mail:hover {
+  background: rgba(56,189,248,0.2);
+}
+
+/* Instagram hover */
+.contact-btn.ig:hover {
+  background: linear-gradient(
+    45deg,
+    #f58529,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+  );
+}
     * {
       margin: 0;
       padding: 0;
@@ -175,8 +205,12 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="grid">
-        <div class="card">📧 firmanputra.sys@gmail.com</div>
-        <div class="card">📱 Instagram @frmanputra_</div>
+  <a href="mailto:firmanputra.sys@gmail.com" class="card contact-btn mail">
+    ✉️ firmanputra.sys@gmail.com
+  </a>
+  <a href="https://instagram.com/frmanputra_" target="_blank" class="card contact-btn ig">
+    📸 Instagram @frmanputra_
+  </a>
       </div>
     </section>
 
