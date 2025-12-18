@@ -272,37 +272,23 @@
 <script>
   const bgm = document.getElementById("bgm");
   const btn = document.querySelector(".music-btn");
-
   let playing = false;
-  let initialized = false;
-
-  function initAutoplay() {
-    if (initialized) return;
-    initialized = true;
-
-    bgm.volume = 0.4;
-    bgm.play().then(() => {
-      playing = true;
-      btn.innerText = "⏸ Pause Music";
-    }).catch(err => {
-      console.log("Autoplay blocked:", err);
-    });
-  }
-
-  // SEMUA bentuk interaksi
-  window.addEventListener("click", initAutoplay, { once: true });
-  window.addEventListener("touchstart", initAutoplay, { once: true });
-  window.addEventListener("scroll", initAutoplay, { once: true });
 
   function toggleMusic() {
     if (!playing) {
-      bgm.play();
-      btn.innerText = "⏸ Pause Music";
+      bgm.volume = 0.4;
+      bgm.play().then(() => {
+        btn.innerText = "⏸ Pause Music";
+        playing = true;
+      }).catch(err => {
+        alert("Audio gagal diputar. Cek format / browser.");
+        console.log(err);
+      });
     } else {
       bgm.pause();
       btn.innerText = "🎵 Play Music";
+      playing = false;
     }
-    playing = !playing;
   }
 </script>
 
