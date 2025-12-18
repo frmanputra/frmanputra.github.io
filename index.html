@@ -3,42 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile</title>
+  <title>Firman Putra</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* CONTACT BUTTON */
-.contact-btn {
-  text-decoration: none;
-  color: #e5e7eb;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.contact-btn:hover {
-  color: white;
-}
-
-/* Email hover */
-.contact-btn.mail:hover {
-  background: rgba(56,189,248,0.2);
-}
-
-/* Instagram hover */
-.contact-btn.ig:hover {
-  background: linear-gradient(
-    45deg,
-    #f58529,
-    #dd2a7b,
-    #8134af,
-    #515bd4
-  );
-}
     * {
       margin: 0;
       padding: 0;
@@ -47,7 +17,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #020617, #020617);
+      background: #020617;
       color: #e5e7eb;
     }
 
@@ -57,13 +27,22 @@
       padding: 40px 20px;
     }
 
-    /* HERO */
+    /* ================= HERO ================= */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: center;
       margin-bottom: 60px;
+
+      background:
+        linear-gradient(rgba(2,6,23,0.88), rgba(2,6,23,0.88)),
+        url("max.jpg");
+      background-size: cover;
+      background-position: center;
+
+      border-radius: 24px;
+      padding: 50px;
     }
 
     .hero h1 {
@@ -72,19 +51,20 @@
     }
 
     .hero span {
-      color: #38bdf8;
+      color: #e10600; /* Red Bull Red */
     }
 
     .hero p {
       margin: 20px 0;
       opacity: 0.85;
+      max-width: 500px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 26px;
-      background: #38bdf8;
-      color: #020617;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #e10600, #ff3b30);
+      color: white;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
@@ -93,11 +73,12 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(56,189,248,.3);
+      box-shadow: 0 12px 30px rgba(225,6,0,.4);
     }
 
+    /* ================= PROFILE CARD ================= */
     .profile-card {
-      background: rgba(255,255,255,0.03);
+      background: rgba(5,11,26,0.75);
       border-radius: 20px;
       padding: 30px;
       text-align: center;
@@ -109,11 +90,17 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #38bdf8;
+      border: 3px solid rgba(225,6,0,.9);
       margin-bottom: 15px;
     }
 
-    /* SECTION */
+    .profile-card p {
+      color: #fcd116; /* Yellow accent */
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* ================= SECTION ================= */
     section {
       margin-bottom: 50px;
     }
@@ -121,7 +108,7 @@
     h2 {
       margin-bottom: 20px;
       font-size: 28px;
-      color: #38bdf8;
+      color: #e10600;
     }
 
     .grid {
@@ -131,7 +118,7 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.03);
+      background: rgba(5,11,26,0.75);
       padding: 25px;
       border-radius: 16px;
       transition: 0.3s;
@@ -139,19 +126,48 @@
 
     .card:hover {
       transform: translateY(-5px);
-      background: rgba(56,189,248,0.08);
+      background: rgba(225,6,0,0.08);
+    }
+
+    /* ================= CONTACT ================= */
+    .contact-btn {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .contact-btn:hover {
+      color: white;
+    }
+
+    .contact-btn.mail:hover {
+      background: rgba(255,59,48,0.15);
+    }
+
+    .contact-btn.ig:hover {
+      background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
     }
 
     footer {
       text-align: center;
       opacity: 0.6;
       margin-top: 40px;
+      font-size: 14px;
     }
 
     @media(max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   </style>
@@ -163,7 +179,7 @@
     <!-- HERO -->
     <div class="hero">
       <div>
-        <h1>Halo, gue <span>Firman mau panggil Putra juga boleh</span></h1>
+        <h1>Halo, gue <span>Firman</span><br>mau panggil Putra juga boleh</h1>
         <p>
           Mahasiswa yang tertarik pada teknologi, networking,
           dan dunia digital. Fokus belajar dan eksplorasi hal baru.
@@ -182,9 +198,9 @@
     <section>
       <h2>About Me</h2>
       <p>
-        Gue suka ngulik, nyoba buat project kecil,
+        Gue suka ngulik, nyoba bikin project kecil,
         dan belajar hal-hal baru di dunia IT.
-        Target jangka panjang : skill makin adaan & portfolio rapi.
+        Target jangka panjang: skill makin adaan & portfolio rapi.
       </p>
     </section>
 
@@ -193,9 +209,9 @@
       <h2>Skills</h2>
       <div class="grid">
         <div class="card">Android Enthusiast</div>
-        <div class="card">Cyber Security Learner</div>
-        <div class="card">Network Fundamentals</div>
         <div class="card">OpenWRT Enthusiast</div>
+        <div class="card">Network Fundamentals</div>
+        <div class="card">Cyber Security Learner</div>
         <div class="card">Device Troubleshooting</div>
         <div class="card">Network Tweaker</div>
       </div>
@@ -205,17 +221,18 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="grid">
-  <a href="mailto:firmanputra.sys@gmail.com" class="card contact-btn mail">
-    ✉️ firmanputra.sys@gmail.com
-  </a>
-  <a href="https://instagram.com/frmanputra_" target="_blank" class="card contact-btn ig">
-    📸 Instagram @frmanputra_
-  </a>
+        <a href="mailto:firmanputra.sys@gmail.com" class="card contact-btn mail">
+          ✉️ firmanputra.sys@gmail.com
+        </a>
+
+        <a href="https://instagram.com/frmanputra_" target="_blank" class="card contact-btn ig">
+          📸 Instagram @frmanputra_
+        </a>
       </div>
     </section>
 
     <footer>
-      © 2025 • Built with HTML & CSS
+      © 2025 • Firman Putra
     </footer>
 
   </div>
