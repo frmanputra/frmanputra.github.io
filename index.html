@@ -270,36 +270,39 @@
 
   <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
 
-  <script>
+<script>
   const bgm = document.getElementById("bgm");
   const btn = document.querySelector(".music-btn");
+
   let playing = false;
-  let started = false;
 
-  function toggleMusic() {
-    if (!started) {
-      // first interaction → autoplay legal
-      bgm.volume = 0.4;
-      bgm.play().then(() => {
-        playing = true;
-        started = true;
-        btn.innerText = "⏸ Pause Music";
-      }).catch(err => {
-        console.log("Audio blocked:", err);
-      });
-      return;
-    }
-
-    if (!playing) {
-      bgm.play();
+  // AUTOPLAY setelah interaksi pertama
+  function autoPlayMusic() {
+    bgm.volume = 0.4;
+    bgm.play().then(() => {
+      playing = true;
       btn.innerText = "⏸ Pause Music";
-    } else {
+    }).catch(() => {});
+
+    document.removeEventListener("click", autoPlayMusic);
+    document.removeEventListener("touchstart", autoPlayMusic);
+  }
+
+  document.addEventListener("click", autoPlayMusic);
+  document.addEventListener("touchstart", autoPlayMusic);
+
+  // TOGGLE BUTTON
+  function toggleMusic() {
+    if (playing) {
       bgm.pause();
       btn.innerText = "🎵 Play Music";
+    } else {
+      bgm.play();
+      btn.innerText = "⏸ Pause Music";
     }
     playing = !playing;
   }
-  </script>
+</script>
 
 </body>
 </html>
